@@ -68,7 +68,7 @@ void ext_isr() {
       add_people = 1;
    }
    
-if(!input(POP_BUTTON) && !start_working){
+   if(!input(POP_BUTTON) && !start_working){
       pop_people = 1;
    }
 }
@@ -84,7 +84,7 @@ void timer1_isr() {
          output_low(CERVO);
       }
    }else if(spining_wheel) {
-       if (counter == 25) { counter = 0;}
+       if (counter == 21) { counter = 0;}
       if (counter == 0) { output_high(MOTORGO);}  // beginning of a new period
       if (counter == 3) {
          output_low(MOTORGO);
@@ -131,7 +131,7 @@ void main() {
          //check infared
          if(start_working){
             
-            if(read_adc() > 100 && spining_wheel && !cervo_work)
+            if(read_adc() > 30 && spining_wheel && !cervo_work)
                infared_input(man, n, kill_each);
             
             // control servo

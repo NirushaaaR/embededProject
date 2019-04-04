@@ -1,0 +1,191 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     cervo_work
+02C     spining_wheel
+02D     level
+02E     counter
+02F     start_working
+030     status
+031     add_people
+032     pop_people
+033     @TRIS_C
+034-035 @sprintf_string
+036     MAIN.man
+037     MAIN.kill_each
+038     MAIN.n
+039     infared_input.kill_each
+039     MAIN.@SCRATCH1
+039     servo_control.@SCRATCH1
+03A     MAIN.@SCRATCH2
+03A     infared_input.@SCRATCH1
+03C-03D show_on7Sec.number
+03C     @PRINTF_D_9600_62_63.P1
+03C     @PSTRINGCN7_9600_62_63.P2
+03C     @PSTRINGC7_9600_62_63.@SCRATCH1
+03C     stop_wheel.@SCRATCH1
+03D     @delay_ms1.P1
+03D     @PRINTF_D_9600_62_63.P2
+03D     @PSTRINGC7_9600_62_63.@SCRATCH2
+03D     @PSTRINGCN7_9600_62_63.@SCRATCH1
+03E     show_on7Sec.upper_byte
+03E     @PSTRINGC7_9600_62_63.@SCRATCH3
+03E     @PSTRINGCN7_9600_62_63.@SCRATCH2
+03E     @PRINTF_D_9600_62_63.@SCRATCH1
+03F     show_on7Sec.lower_byte
+03F     @PSTRINGC7_9600_62_63.@SCRATCH4
+03F     @PSTRINGCN7_9600_62_63.@SCRATCH3
+03F     @PRINTF_D_9600_62_63.@SCRATCH2
+040     @I2C_WRITEU_1.P1
+040     @PSTRINGCN7_9600_62_63.@SCRATCH4
+040     @PRINTF_D_9600_62_63.@SCRATCH3
+041     @PRINTF_D_9600_62_63.@SCRATCH4
+042     @DIV88.P1
+043     @DIV88.P1
+044     @DIV88.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07F     @INTERRUPT_AREA
+0FF     @INTERRUPT_AREA
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+107F     @INTERRUPT_AREA
+10FF     @INTERRUPT_AREA
+117F     @INTERRUPT_AREA
+11FF     @INTERRUPT_AREA
+127F     @INTERRUPT_AREA
+12FF     @INTERRUPT_AREA
+137F     @INTERRUPT_AREA
+13FF     @INTERRUPT_AREA
+147F     @INTERRUPT_AREA
+14FF     @INTERRUPT_AREA
+157F     @INTERRUPT_AREA
+15FF     @INTERRUPT_AREA
+167F     @INTERRUPT_AREA
+16FF     @INTERRUPT_AREA
+177F     @INTERRUPT_AREA
+17FF     @INTERRUPT_AREA
+187F     @INTERRUPT_AREA
+18FF     @INTERRUPT_AREA
+197F     @INTERRUPT_AREA
+19FF     @INTERRUPT_AREA
+1A7F     @INTERRUPT_AREA
+1AFF     @INTERRUPT_AREA
+1B7F     @INTERRUPT_AREA
+1BFF     @INTERRUPT_AREA
+1C7F     @INTERRUPT_AREA
+1CFF     @INTERRUPT_AREA
+1D7F     @INTERRUPT_AREA
+1DFF     @INTERRUPT_AREA
+1E7F     @INTERRUPT_AREA
+1EFF     @INTERRUPT_AREA
+1F7F     @INTERRUPT_AREA
+1FFF     @INTERRUPT_AREA
+
+ROM Allocation:
+000058  ext_isr
+00007E  timer1_isr
+0000B5  @const639.call
+0000BD  @const644.call
+0000C4  @const653.call
+0000CD  @I2C_WRITEU_1
+0000DD  show_on7Sec
+0000F8  @delay_ms1
+00010C  @PSTRINGCN7_9600_62_63
+000165  @DIV88
+00017A  @PRINTF_D_9600_62_63
+0001D5  servo_control
+000205  @cinit1
+000205  MAIN
+000245  @cinit2
+00029D  stop_wheel
+00029D  infared_input
+0002BC  @PSTRINGC7_9600_62_63
+000339  wheel_spin_control
+
+Project Directory:
+    E:\Lab261215\Scripts\Project\embededProject\
+
+Project Files:
+    project.c                                               [04-เม.ย.-19 13:31  CRC=77C6D85B]
+    ..\..\..\PICC\Devices\16F886.h                          [21-ก.ค.-17 13:41  CRC=7107D019]
+
+Source signature=59D6788D
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=6758
+
+Units:
+    project (main)
+
+Compiler Settings:
+    Processor:      PIC16F886
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   project.xsym
+    Errors:      project.err
+    Ext Symbols: project.esym
+    INHX8:       project.hex
+    Symbols:     project.sym
+    List:        project.lst
+    Debug/COFF:  project.cof
+    Project:     project.ccspjt
+    Call Tree:   project.tre
+    Statistics:  project.STA

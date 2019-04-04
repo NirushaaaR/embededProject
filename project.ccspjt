@@ -1,0 +1,55 @@
+[PROJECT]
+Target=project.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=project.c
+[project.c]
+Type=4
+[mru-list]
+1=project.c
+
+[defines]
+buildcount=9
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=2
+D1=03-04-2019
+D1_L=14
+D1_L1=[68473]Project Opened.
+D1_L2=[68490]Started Editing.
+D1_L3=[68497]Stopped Editing.
+TotalEdit=11
+TotalDebug=0
+D1_E=11
+D1_D=0
+D1_L4=[69596]Started Editing.
+D1_L5=[70050]Stopped Editing.
+D1_L6=[70708]Started Editing.
+D1_L7=[70714]Stopped Editing.
+D1_L8=[70727]Started Editing.
+D1_L9=[71383]Stopped Editing.
+D1_L10=[71433]Started Editing.
+D1_L11=[71742]Stopped Editing.
+D1_L12=[72197]Started Editing.
+D1_L13=[72204]Stopped Editing.
+D1_L14=[72204]Project Closed.
+D2=04-04-2019
+D2_L=5
+D2_L1=[47869]Project Opened.
+D2_L2=[47966]Started Editing.
+D2_L3=[48308]Stopped Editing.
+D2_L4=[48679]Started Editing.
+D2_L5=[48980]Stopped Editing.
+
+[Opened Files]
+1=project.c
+t1=120
+Count=1
+[Units]
+Count=1
+1=project (main)

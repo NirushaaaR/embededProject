@@ -131,7 +131,7 @@ void main() {
          //check infared
          if(start_working){
             
-            if(read_adc() > 100 && spining_wheel && !cervo_work)
+            if(read_adc() > 30 && spining_wheel && !cervo_work)
                infared_input(man, n, kill_each);
             
             // control servo

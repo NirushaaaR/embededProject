@@ -1,0 +1,5 @@
+>>> Warning 203 "project.c" Line 130(1,1): Condition always TRUE
+>>> Warning 202 "project.c" Line 37(5,11): Variable never used:   status
+      Memory usage:   ROM=11%      RAM=9% - 11%
+      0 Errors,  2 Warnings.
+Build Successful.
