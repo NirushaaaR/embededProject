@@ -1,6 +1,7 @@
 ÀÄproject
-   ÃÄMAIN  0/404  Ram=5
+   ÃÄMAIN  0/410  Ram=4
    ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ÃÄshow_on7Sec  0/27  Ram=4
    ³  ³  ÃÄ@I2C_WRITEU_1  0/16  Ram=1
    ³  ³  ÃÄ@I2C_WRITEU_1  0/16  Ram=1
@@ -15,22 +16,18 @@
    ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
    ³  ³  ³  ÀÄ@DIV88  0/21  Ram=3
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄwheel_spin_control  (Inline)  Ram=0
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄshow_on7Sec  0/27  Ram=4
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PRINTF_D_9600_62_63  0/91  Ram=6
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
-   ³  ÃÄservo_control  0/48  Ram=1
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_control  0/35  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄshow_on7Sec  0/27  Ram=4
-   ³  ³  ÀÄ*
-   ³  ÃÄshow_on7Sec  0/27  Ram=4
-   ³  ³  ÀÄ*
    ³  ÀÄshow_on7Sec  0/27  Ram=4
    ³     ÀÄ*
-   ÃÄext_isr  0/38  Ram=0
-   ÀÄtimer1_isr  0/55  Ram=0
+   ÃÄext_isr  0/24  Ram=0
+   ³  ÀÄshow_on7Sec  0/27  Ram=4
+   ³     ÀÄ*
+   ÀÄtimer1_isr  0/54  Ram=0

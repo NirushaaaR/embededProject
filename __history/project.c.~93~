@@ -34,12 +34,11 @@ int level = 17;
 int counter = 0;
 // for cervo control
 int start_working = 0;
+int status = 0; // 1 = counting 2 = kill people
 
 // people number
 int add_people = 0;
 int pop_people = 0;
-
-int n = 8;
 
 #define Slave_7Sec  0xB0
 #use i2c(MASTER, I2C1, FORCE_HW) // configure the i2c port
@@ -62,17 +61,15 @@ void ext_isr() {
       start_working = 1;
       spining_wheel = spining_wheel == 1 ? 0 : 1;
       cervo_work = 0;
-      n=8;
-      show_on7Sec(n);
    }
-//!   
-//!   if(!input(ADD_BUTTON) && !start_working){
-//!      add_people = 1;
-//!   }
-//!   
-//!if(!input(POP_BUTTON) && !start_working){
-//!      pop_people = 1;
-//!   }
+   
+   if(!input(ADD_BUTTON) && !start_working){
+      add_people = 1;
+   }
+   
+if(!input(POP_BUTTON) && !start_working){
+      pop_people = 1;
+   }
 }
 
 #INT_TIMER1
@@ -86,9 +83,9 @@ void timer1_isr() {
          output_low(CERVO);
       }
    }else if(spining_wheel) {
-       if (counter == 255) {counter = 0;}
+       if (counter == 245) {counter = 0;}
       if (counter == 0) { output_high(MOTORGO);}  // beginning of a new period
-      if (counter == 30) {
+      if (counter == 25) {
          output_low(MOTORGO);
       }
       
@@ -98,6 +95,7 @@ void timer1_isr() {
 
 int find_survivor(int number);
 void infared_input(int& man,int& n,int kill_each);
+void wheel_spin_control();
 void servo_control();
 void stop_wheel();
 
@@ -130,6 +128,7 @@ void main() {
    int man = 0;
    int kill_each = 2;
    // how many people are there
+   int n = 8;
    show_on7Sec(n);
    enable_interrupts(INT_TIMER1);
    
@@ -137,7 +136,7 @@ void main() {
          //check infared
          if(start_working){
             
-            if(read_adc() > 45 && spining_wheel && !cervo_work)
+            if(read_adc() > 50 && spining_wheel && !cervo_work)
                infared_input(man, n, kill_each);
             
             // control servo
@@ -150,19 +149,19 @@ void main() {
          
          show_on7Sec(read_adc());
          
-//!         if(add_people){
-//!            n++;
-//!            if(n > 16) n = 16;
-//!            show_on7Sec(n);
-//!            add_people = 0;
-//!         }
-//!         
-//!         if(pop_people){
-//!            n--;
-//!            if(n < 1) n = 1;
-//!            show_on7Sec(n);
-//!            pop_people = 0;
-//!         }
+         if(add_people){
+            n++;
+            if(n > 16) n = 16;
+            show_on7Sec(n);
+            add_people = 0;
+         }
+         
+         if(pop_people){
+            n--;
+            if(n < 1) n = 1;
+            show_on7Sec(n);
+            pop_people = 0;
+         }
     }
 }
 
@@ -181,10 +180,9 @@ void infared_input(int& man, int& n, int kill_each){
          
          if(man < kill_each){
             // continue spinning
-            spining_wheel = 1;
-            enable_interrupts(INT_TIMER1);
+           wheel_spin_control();
              // delay a bit
-            delay_ms(750);
+            delay_ms(1000);
          }else{
             //reset man
             man = 0;
@@ -199,6 +197,10 @@ void infared_input(int& man, int& n, int kill_each){
                start_working = 0;
             }
          }
+}
+
+void wheel_spin_control(){
+    
 }
 
 void stop_wheel(){

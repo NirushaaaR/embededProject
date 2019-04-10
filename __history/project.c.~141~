@@ -148,7 +148,7 @@ void main() {
             output_low(MOTORGO);
          }
          
-         show_on7Sec(read_adc());
+//!         show_on7Sec(read_adc());
          
 //!         if(add_people){
 //!            n++;

@@ -62,8 +62,8 @@ void ext_isr() {
       start_working = 1;
       spining_wheel = spining_wheel == 1 ? 0 : 1;
       cervo_work = 0;
-      n=8;
-      show_on7Sec(n);
+      
+      show_on7Sec(8);
    }
 //!   
 //!   if(!input(ADD_BUTTON) && !start_working){
@@ -148,7 +148,7 @@ void main() {
             output_low(MOTORGO);
          }
          
-         show_on7Sec(read_adc());
+//!         show_on7Sec(read_adc());
          
 //!         if(add_people){
 //!            n++;

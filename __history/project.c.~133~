@@ -39,8 +39,6 @@ int start_working = 0;
 int add_people = 0;
 int pop_people = 0;
 
-int n = 8;
-
 #define Slave_7Sec  0xB0
 #use i2c(MASTER, I2C1, FORCE_HW) // configure the i2c port
 void show_on7Sec(int16 number){
@@ -62,17 +60,15 @@ void ext_isr() {
       start_working = 1;
       spining_wheel = spining_wheel == 1 ? 0 : 1;
       cervo_work = 0;
-      n=8;
-      show_on7Sec(n);
    }
-//!   
-//!   if(!input(ADD_BUTTON) && !start_working){
-//!      add_people = 1;
-//!   }
-//!   
-//!if(!input(POP_BUTTON) && !start_working){
-//!      pop_people = 1;
-//!   }
+   
+   if(!input(ADD_BUTTON) && !start_working){
+      add_people = 1;
+   }
+   
+if(!input(POP_BUTTON) && !start_working){
+      pop_people = 1;
+   }
 }
 
 #INT_TIMER1
@@ -130,6 +126,7 @@ void main() {
    int man = 0;
    int kill_each = 2;
    // how many people are there
+   int n = 8;
    show_on7Sec(n);
    enable_interrupts(INT_TIMER1);
    
@@ -148,7 +145,7 @@ void main() {
             output_low(MOTORGO);
          }
          
-         show_on7Sec(read_adc());
+//!         show_on7Sec(read_adc());
          
 //!         if(add_people){
 //!            n++;
