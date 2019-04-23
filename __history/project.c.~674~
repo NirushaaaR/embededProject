@@ -127,7 +127,7 @@ void main() {
    set_timer1(start);
 
    cervo_work = 1;
-   level = 9;
+   level = 8;
    enable_interrupts(INT_TIMER1);
    delay_ms(1000);
    cervo_work = 0;
@@ -160,17 +160,17 @@ void main() {
          //show_on7sec(read_adc());
          if(start_working || start_count>0){
          
-               if(read_adc() >= sensor_value+13 && spining_wheel && !cervo_work){
+               if(read_adc() >= sensor_value+15 && spining_wheel && !cervo_work){
                   stop_wheel();
-                  delay_ms(150);
-                  if(read_adc() >= sensor_value+18){
+                  delay_ms(100);
+                  if(read_adc() >= sensor_value+25){
                   
                      if(start_count==1){
                         n++;
                         show_on7sec(n);
 //!                        if(read_adc() <= sensor_value+315){
                            start_wheel(); 
-                           delay_ms(450);
+                           delay_ms(400);
 //!                        }else{
 //!                           start_count = 2;
 //!                        }
@@ -180,7 +180,7 @@ void main() {
                      }else if(start_count == 2){
                         start_count = 0;
                         restore(people_survive);
-                        predict_survivor = 0;
+                        predict_survivor = 100*(int16)find_survivor(n);
                         show_on7sec(0+predict_survivor);
                         start_working=1;
                      }
@@ -247,7 +247,7 @@ int infared_input(int& man, int& n, int kill_each,int& point_at, int* people, in
                do{
                   servo_control();
                   delay_ms(100);
-               }while(read_adc() >= sensor_value+10);
+               }while(read_adc() >= sensor_value+20);
                   
                // decreae people
                n--;
@@ -273,9 +273,9 @@ void servo_control(){
       //set_timer1(start);
       cervo_work=1;
       enable_interrupts(INT_TIMER1);
-      level = 14;
+      level = 13;
       delay_ms(1000);
-      level = 9;
+      level = 8;
       delay_ms(1000);
       cervo_work = 0;
 }

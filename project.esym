@@ -1,9 +1,9 @@
-D G "__PCM__" 0 236 ""5.074""
-D G "__DEVICE__" 0 236 "886"
-D G "__DATE__" 0 236 ""09-เม.ย.-19""
-D G "__TIME__" 0 236 ""21:45:45""
-D G "_UNICODE" 0 236 ""?""
-D G "__EVAL" 0 236 ""?"" "Standard Header file for the PIC16F886 device ////////////////"
+D G "__PCM__" 0 305 ""5.074""
+D G "__DEVICE__" 0 305 "886"
+D G "__DATE__" 0 305 ""18-เม.ย.-19""
+D G "__TIME__" 0 305 ""13:08:10""
+D G "_UNICODE" 0 305 ""?""
+D G "__EVAL" 0 305 ""?"" "Standard Header file for the PIC16F886 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 f N "set_tris_a" 1 39 ""
 v L "value" 1 39 "int8" `55 
@@ -1097,78 +1097,93 @@ D G "MOTORGO" 0 23 "PIN_B6"
 D G "MOTORSTOP" 0 24 "PIN_B5"
 D G "ADD_BUTTON" 0 25 "PIN_B3"
 D G "POP_BUTTON" 0 26 "PIN_B2"
-V G "period" 0 28 "int8" `600 
-V G "start" 0 29 "int16" `602 
-V G "cervo_work" 0 31 "int8" `604 
-V G "spining_wheel" 0 32 "int8" `605 
-V G "level" 0 33 "int8" `606 
-V G "counter" 0 34 "int8" `607 
-C L "jump_to_isr" 0 35 1 "FUNCTION"
-V G "start_working" 0 36 "int8" `608 
-C L "jump_to_isr" 0 35 1 "FUNCTION"
-V G "add_people" 0 39 "int8" `609 
-V G "pop_people" 0 40 "int8" `610 
-V G "n" 0 42 "int8" `611 
-D G "Slave_7Sec" 0 44 "0xB0"
-F N "show_on7Sec" 0 46 ""
-V L "number" 0 46 "int16" `618 
-F G "show_on7Sec" 0 46 "void(int16 number)" `617 
-V L "upper_byte" 0 48 "int8" `619 
-V L "lower_byte" 0 49 "int8" `620 
-C L "show_on7Sec" 0 35 1 "FUNCTION"
-C L "show_on7Sec" 0 35 1 "FUNCTION"
-C L "show_on7Sec" 0 35 1 "FUNCTION"
-F N "ext_isr" 0 60 ""
-F G "ext_isr" 0 60 "void()" `621 
-C L "ext_isr" 0 35 6 "FUNCTION"
-F N "timer1_isr" 0 79 ""
-F G "timer1_isr" 0 79 "void()" `622 
-C L "timer1_isr" 0 35 1 "FUNCTION"
-C L "timer1_isr" 0 35 1 "FUNCTION"
-C L "timer1_isr" 0 35 1 "FUNCTION"
-F N "find_survivor" 0 99 ""
-V L "number" 0 99 "int8" `624 
-f G "find_survivor" 0 99 "int8(int8 number)" `623 
-F N "infared_input" 0 100 ""
-V L "man" 0 100 "int8" `626 
-V L "n" 0 100 "int8" `627 
-V L "kill_each" 0 100 "int8" `628 
-f G "infared_input" 0 100 "void(int8 man,int8 n,int8 kill_each)" `625 
-F N "servo_control" 0 101 ""
-f G "servo_control" 0 101 "void()" `629 
-F N "stop_wheel" 0 102 ""
-f G "stop_wheel" 0 102 "void()" `630 
-F N "MAIN" 0 104 ""
-F G "MAIN" 0 104 "void()" `631  "set up infared sensor"
-C L "MAIN" 0 35 1 "FUNCTION"
-C L "MAIN" 0 35 1 "FUNCTION"
-C L "MAIN" 0 35 2 "FUNCTION"
-C L "MAIN" 0 35 2 "FUNCTION"
-V L "man" 0 130 "int8" `634 
-V L "kill_each" 0 131 "int8" `635 
-C L "MAIN" 0 35 1 "FUNCTION"
-C L "MAIN" 0 35 1 "FUNCTION"
-C L "MAIN" 0 35 1 "FUNCTION"
-C L "MAIN" 0 35 12 "FUNCTION"
-F N "infared_input" 0 169 ""
-V L "man" 0 169 "int8" `626 
-V L "n" 0 169 "int8" `627 
-V L "kill_each" 0 169 "int8" `639 
-F G "infared_input" 0 169 "void(int8 man,int8 n,int8 kill_each)" `625  "stop motor"
-C L "infared_input" 0 35 1 "FUNCTION"
-C L "infared_input" 0 35 1 "FUNCTION"
-C L "infared_input" 0 35 1 "FUNCTION"
-C L "infared_input" 0 35 1 "FUNCTION"
-C L "infared_input" 0 35 1 "FUNCTION"
-C L "infared_input" 0 35 1 "FUNCTION"
-C L "infared_input" 0 35 1 "FUNCTION"
-F N "stop_wheel" 0 204 ""
-F G "stop_wheel" 0 204 "void()" `630 
-F N "servo_control" 0 213 ""
-F G "servo_control" 0 213 "void()" `629 
-F N "find_survivor" 0 226 ""
-V L "number" 0 226 "int8" `652 
-F G "find_survivor" 0 226 "int8(int8 number)" `623 
+D G "Slave_7Sec" 0 28 "0xB0"
+F N "show_on7Sec" 0 30 ""
+V L "number" 0 30 "int16" `606 
+F G "show_on7Sec" 0 30 "void(int16 number)" `605 
+V L "upper_byte" 0 32 "int8" `607 
+V L "lower_byte" 0 33 "int8" `608 
+C L "show_on7Sec" 0 17 1 "FUNCTION"
+C L "show_on7Sec" 0 17 1 "FUNCTION"
+C L "show_on7Sec" 0 17 1 "FUNCTION"
+V G "period" 0 44 "int8" `609 
+V G "start" 0 45 "int16" `611 
+V G "cervo_work" 0 47 "int8" `613 
+V G "spining_wheel" 0 48 "int8" `614 
+V G "level" 0 49 "int8" `615 
+V G "counter" 0 50 "int8" `616 
+V G "sensor_value" 0 51 "int8" `617 
+V G "start_working" 0 52 "int8" `618 
+V G "start_count" 0 53 "int8" `619 
+V G "n" 0 54 "int8" `620 
+V G "motor_level" 0 55 "int8" `621 
+F N "timer1_isr" 0 59 ""
+F G "timer1_isr" 0 59 "void()" `622 
+F N "ext_isr" 0 81 ""
+F G "ext_isr" 0 81 "void()" `623 
+C L "ext_isr" 0 17 1 "FUNCTION"
+C L "ext_isr" 0 17 1 "FUNCTION"
+F N "find_survivor" 0 96 ""
+V L "number" 0 96 "int8" `625 
+f G "find_survivor" 0 96 "int8(int8 number)" `624 
+F N "infared_input" 0 97 ""
+V L "man" 0 97 "int8" `627 
+V L "n" 0 97 "int8" `628 
+V L "kill_each" 0 97 "int8" `629 
+V L "point_at" 0 97 "int8" `630 
+V L "people" 0 97 "*int8" `631 
+V L "predict_survivor" 0 97 "int16" `632 
+f G "infared_input" 0 97 "int8(int8 man,int8 n,int8 kill_each,int8 point_at,*int8 people,int16 predict_survivor)" `626 
+F N "servo_control" 0 98 ""
+f G "servo_control" 0 98 "void()" `633 
+F N "stop_wheel" 0 99 ""
+f G "stop_wheel" 0 99 "void()" `634 
+F N "start_wheel" 0 100 ""
+f G "start_wheel" 0 100 "void()" `635 
+F N "restore" 0 102 ""
+V L "people" 0 102 "*int8" `637 
+F G "restore" 0 102 "void(*int8 people)" `636 
+V L "i" 0 103 "int8" `638 
+F N "MAIN" 0 112 ""
+F G "MAIN" 0 112 "void()" `639  "set up infared sensor"
+C L "MAIN" 0 17 1 "FUNCTION"
+C L "MAIN" 0 17 1 "FUNCTION"
+C L "MAIN" 0 17 2 "FUNCTION"
+C L "MAIN" 0 17 2 "FUNCTION"
+V L "man" 0 137 "int8" `642 
+V L "kill_each" 0 138 "int8" `643 
+C L "MAIN" 0 17 1 "FUNCTION"
+V L "predict_survivor" 0 144 "int16" `644 
+V L "people_survive" 0 145 "int8[12]" `645 
+V L "point_at" 0 147 "int8" `646 
+V L "end" 0 148 "int8" `647 
+C L "MAIN" 0 17 2 "FUNCTION"
+C L "MAIN" 0 17 1 "FUNCTION"
+C L "MAIN" 0 17 3 "FUNCTION"
+C L "MAIN" 0 17 1 "FUNCTION"
+F N "infared_input" 0 219 ""
+V L "man" 0 219 "int8" `627 
+V L "n" 0 219 "int8" `628 
+V L "kill_each" 0 219 "int8" `629 
+V L "point_at" 0 219 "int8" `630 
+V L "people" 0 219 "*int8" `631 
+V L "predict_survivor" 0 219 "int16" `654 
+F G "infared_input" 0 219 "int8(int8 man,int8 n,int8 kill_each,int8 point_at,*int8 people,int16 predict_survivor)" `626 
+C L "infared_input" 0 17 1 "FUNCTION"
+C L "infared_input" 0 17 1 "FUNCTION"
+C L "infared_input" 0 17 1 "FUNCTION"
+C L "infared_input" 0 17 1 "FUNCTION"
+C L "infared_input" 0 17 1 "FUNCTION"
+F N "stop_wheel" 0 260 ""
+F G "stop_wheel" 0 260 "void()" `634 
+F N "servo_control" 0 271 ""
+F G "servo_control" 0 271 "void()" `633  "set_timer1(start);"
+F N "find_survivor" 0 283 ""
+V L "number" 0 283 "int8" `649 
+F G "find_survivor" 0 283 "int8(int8 number)" `624 
+V L "msb" 0 285 "int8" `648 
+F N "start_wheel" 0 294 ""
+F G "start_wheel" 0 294 "void()" `635  "start wheel"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0

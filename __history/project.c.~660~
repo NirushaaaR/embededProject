@@ -14,7 +14,7 @@
 #FUSES NOWRT                    //Program memory not write protected
 #FUSES BORV40                   //Brownout reset at 4.0V
 #FUSES RESERVED                 //Used to set the reserved FUSE bits
-//!#FUSES INTRC_IO 
+#FUSES INTRC_IO 
 
 #use delay(clock=8M)
 #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)
@@ -48,27 +48,30 @@ int cervo_work = 0;
 int spining_wheel = 0;
 int level = 17;
 int counter = 0;
+
 int sensor_value = 0;
+
 int start_working = 0;
 int start_count = 0;
+
 int n = 0;
 int motor_level = 30;
 
 
 #INT_TIMER1
 void timer1_isr() {
-   set_timer1(start); 
+   set_timer1(start); // re-set the timer1 counter to maintain a stable period
    counter++;
    if(cervo_work){
        if (counter == period) { counter = 0;}
-      if (counter == 0) { output_high(CERVO);} 
+      if (counter == 0) { output_high(CERVO);}  // beginning of a new period
       if (counter == level) {
          output_low(CERVO);
       }
    }else if(spining_wheel) {
       
-       if (counter == 250) {counter = 0;}
-      if (counter == 0) { output_high(MOTORGO);} 
+       if (counter == 248) {counter = 0;}
+      if (counter == 0) { output_high(MOTORGO);}  // beginning of a new period
       if (counter == motor_level) {
          output_low(MOTORGO);
       }
@@ -109,6 +112,15 @@ void restore(int* people){
    }
 }
 
+//debuggging 
+void show_people(int* people){
+   printf("people: ");
+   for(int i = 0; i<12 ; i++){
+      printf("%d:%d ",i,people[i]);
+   }
+   printf("\n");
+}
+
 void main() {
    
    //set up infared sensor
@@ -127,7 +139,7 @@ void main() {
    set_timer1(start);
 
    cervo_work = 1;
-   level = 9;
+   level = 8;
    enable_interrupts(INT_TIMER1);
    delay_ms(1000);
    cervo_work = 0;
@@ -160,17 +172,17 @@ void main() {
          //show_on7sec(read_adc());
          if(start_working || start_count>0){
          
-               if(read_adc() >= sensor_value+13 && spining_wheel && !cervo_work){
+               if(read_adc() >= sensor_value+15 && spining_wheel && !cervo_work){
                   stop_wheel();
-                  delay_ms(150);
-                  if(read_adc() >= sensor_value+18){
+                  delay_ms(100);
+                  if(read_adc() >= sensor_value+25){
                   
                      if(start_count==1){
                         n++;
                         show_on7sec(n);
 //!                        if(read_adc() <= sensor_value+315){
                            start_wheel(); 
-                           delay_ms(450);
+                           delay_ms(400);
 //!                        }else{
 //!                           start_count = 2;
 //!                        }
@@ -180,7 +192,7 @@ void main() {
                      }else if(start_count == 2){
                         start_count = 0;
                         restore(people_survive);
-                        predict_survivor = 0;
+                        predict_survivor = 100*(int16)find_survivor(n);
                         show_on7sec(0+predict_survivor);
                         start_working=1;
                      }
@@ -206,6 +218,7 @@ void main() {
             end = 0;
             n = 12;
             restore(people_survive);
+            show_people(people_survive);
             point_at = -1;
             man = 0;
             start_working = 0;
@@ -242,15 +255,15 @@ int infared_input(int& man, int& n, int kill_each,int& point_at, int* people, in
             }else{
                //reset man
                man = 0;
-              
-               //show_on7Sec(n);
-               do{
-                  servo_control();
-                  delay_ms(100);
-               }while(read_adc() >= sensor_value+10);
-                  
+               //work cervo
+               cervo_work = 1;
                // decreae people
                n--;
+               //show_on7Sec(n);
+               printf("%d people left \r\n", n);
+               //while(read_adc() >= sensor_value+20){ 
+                  servo_control();
+               
                start_wheel();
                people[point_at] = 0;
             }
@@ -271,11 +284,10 @@ void stop_wheel(){
 void servo_control(){
 
       //set_timer1(start);
-      cervo_work=1;
       enable_interrupts(INT_TIMER1);
-      level = 14;
+      level = 13;
       delay_ms(1000);
-      level = 9;
+      level = 8;
       delay_ms(1000);
       cervo_work = 0;
 }
@@ -283,6 +295,7 @@ void servo_control(){
 int find_survivor(int number){
 
    int msb = 1;
+   
    while((msb << 1) <= number){
       msb <<= 1;
    }
@@ -294,10 +307,10 @@ int find_survivor(int number){
 void start_wheel(){
 //start wheel
    spining_wheel = 1;
-   motor_level = 40;
+   motor_level = 35;
    enable_interrupts(INT_TIMER1);
-   delay_ms(150);
-   motor_level = 30;
+   delay_ms(300);
+   motor_level = 29;
    enable_interrupts(INT_TIMER1);
                         
 }

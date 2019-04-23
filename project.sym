@@ -1,7 +1,7 @@
-004-005 @READ_PROGRAM_MEMORY8.P1
-004-005 @WRITE_PROGRAM_MEMORY8.P2
-015     CCP_1
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
 015     CCP_1_LOW
+015     CCP_1
 016     CCP_1_HIGH
 01B     CCP_2_LOW
 01B     CCP_2
@@ -13,52 +13,40 @@
 024     @INTERRUPT_AREA
 025     @INTERRUPT_AREA
 026     @INTERRUPT_AREA
-027     @INTERRUPT_AREA
-028     @INTERRUPT_AREA
-029     @INTERRUPT_AREA
-02A     @INTERRUPT_AREA
-02B     @INTERRUPT_AREA
-02C     cervo_work
-02D     spining_wheel
-02E     level
-02F     counter
-030     start_working
-031     add_people
-032     pop_people
-033     n
-034     @TRIS_C
-035-036 @sprintf_string
-037     MAIN.man
-038     MAIN.kill_each
-039     infared_input.kill_each
-039     MAIN.@SCRATCH1
-039     servo_control.@SCRATCH1
-03A     MAIN.@SCRATCH2
-03A     infared_input.@SCRATCH1
-03C     @PSTRINGCN7_9600_62_63.P1
-03C     @PRINTF_D_9600_62_63.P2
-03C     @PSTRINGC7_9600_62_63.@SCRATCH1
-03C     stop_wheel.@SCRATCH1
-03D     @PRINTF_D_9600_62_63.P1
-03D     @delay_ms1.P2
-03D     @PSTRINGC7_9600_62_63.@SCRATCH2
-03D     @PSTRINGCN7_9600_62_63.@SCRATCH1
-03E     @PSTRINGC7_9600_62_63.@SCRATCH3
-03E     @PSTRINGCN7_9600_62_63.@SCRATCH2
-03E     @PRINTF_D_9600_62_63.@SCRATCH1
-03F     @PSTRINGC7_9600_62_63.@SCRATCH4
-03F     @PSTRINGCN7_9600_62_63.@SCRATCH3
-03F     @PRINTF_D_9600_62_63.@SCRATCH2
-040     @PSTRINGCN7_9600_62_63.@SCRATCH4
-040     @PRINTF_D_9600_62_63.@SCRATCH3
-041     @PRINTF_D_9600_62_63.@SCRATCH4
-042     @DIV88.P1
-043     @DIV88.P1
-044     @DIV88.@SCRATCH1
-045-046 show_on7Sec.number
-047     show_on7Sec.upper_byte
-048     show_on7Sec.lower_byte
-049     @I2C_WRITEU_1.P1
+027     @TRIS_C
+028     cervo_work
+029     spining_wheel
+02A     level
+02B     counter
+02C     sensor_value
+02D     start_working
+02E     start_count
+02F     n
+030     motor_level
+031     MAIN.man
+032     MAIN.kill_each
+033-034 MAIN.predict_survivor
+035-040 MAIN.people_survive
+041     MAIN.point_at
+042     MAIN.end
+043     infared_input.kill_each
+043-044 restore.people
+043     MAIN.@SCRATCH1
+044-045 infared_input.people
+044     MAIN.@SCRATCH2
+045     restore.i
+046-047 infared_input.predict_survivor
+046     restore.@SCRATCH1
+047     restore.@SCRATCH2
+048     infared_input.@SCRATCH1
+049     infared_input.@SCRATCH2
+04B     stop_wheel.@SCRATCH1
+04B     servo_control.@SCRATCH1
+04C     @delay_ms1.P1
+04D-04E show_on7Sec.number
+04F     show_on7Sec.upper_byte
+050     show_on7Sec.lower_byte
+051     @I2C_WRITEU_1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -134,36 +122,31 @@ FFF     @INTERRUPT_AREA
 1FFF     @INTERRUPT_AREA
 
 ROM Allocation:
-000058  @I2C_WRITEU_1
-000068  show_on7Sec
-000083  ext_isr
-00009B  timer1_isr
-0000D1  @const636.call
-0000D9  @const641.call
-0000E0  @const650.call
-0000E9  @delay_ms1
-0000FD  @PSTRINGCN7_9600_62_63
-000156  @DIV88
-00016B  @PRINTF_D_9600_62_63
-0001C6  servo_control
-0001E9  @cinit1
-0001E9  MAIN
-00022A  @cinit2
-000299  stop_wheel
-000299  infared_input
-0002B8  @PSTRINGC7_9600_62_63
+000038  timer1_isr
+00006F  ext_isr
+000084  @delay_ms1
+000098  @I2C_WRITEU_1
+0000A8  show_on7Sec
+0000C3  stop_wheel
+0000D9  start_wheel
+0000E9  restore
+000108  @cinit1
+000108  MAIN
+000144  @cinit2
+000218  infared_input
+00024B  servo_control
 
 Project Directory:
     E:\Lab261215\Scripts\Project\embededProject\
 
 Project Files:
-    project.c                                               [09-เม.ย.-19 21:45  CRC=82F9DE11]
+    project.c                                               [18-เม.ย.-19 13:07  CRC=FCD9AA1B]
     ..\..\..\PICC\Devices\16F886.h                          [21-ก.ค.-17 13:41  CRC=7107D019]
 
-Source signature=65097E43
+Source signature=DEE94A4D
 Program memory checksum=0000
 Program memory CRC=0000
-Hex file CRC=9505
+Hex file CRC=EA54
 
 Units:
     project (main)

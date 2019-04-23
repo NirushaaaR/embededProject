@@ -273,9 +273,9 @@ void servo_control(){
       //set_timer1(start);
       cervo_work=1;
       enable_interrupts(INT_TIMER1);
-      level = 14;
+      level = 13;
       delay_ms(1000);
-      level = 9;
+      level = 8;
       delay_ms(1000);
       cervo_work = 0;
 }
